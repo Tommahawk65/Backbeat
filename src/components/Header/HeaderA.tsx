@@ -8,7 +8,7 @@ function HeaderA() {
                 </a>
                     <nav className="navbar navbar-expand-lg p-0">
                         <div className="container-fluid p-0">
-                            <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                            <div className="offcanvas offcanvas-end" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                                 <div className="offcanvas-header bg-primary">
                                     <h5 className="offcanvas-title h3" id="offcanvasNavbarLabel">Navigate</h5>
                                     <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
