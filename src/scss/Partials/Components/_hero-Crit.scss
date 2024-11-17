@@ -1,0 +1,177 @@
+#hero-wrap {
+    
+
+    #hero {
+        height: 250px;
+
+        body.fixed-header & {
+            height: 400px;
+
+            @include media-breakpoint-down(lg) {
+                height: 300px;
+            }
+        }
+
+        @include media-breakpoint-down(lg) {
+            height: 150px;
+        }
+
+        img {
+            display: block;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+@if $theme_3_hero {
+
+    // ------------------------- Hero 3 Start ------------------------- //
+    .hero-3 {
+        .search-title {
+            display: none !important;
+        }
+    }
+
+    .Home #hero-wrap {
+        #hero:before {
+            box-shadow: inset 0 -100px 50px -50px darken($primary, 5%);
+        }
+
+        &:after,
+        &:before {
+            content: "";
+            position: absolute;
+            background: $background;
+            height: 300px;
+            bottom: -200px;
+            z-index: 4;
+            transform: rotate(-4deg);
+            left: -50px;
+            right: -50px;
+        }
+
+        &:after {
+            background: rgba($secondary, 0.75);
+            height: 400px;
+            transform: rotate(-6deg);
+            box-shadow: none;
+            z-index: 3;
+        }
+
+        .caption {
+            position: relative;
+            top: 100px;
+            -webkit-transform: none;
+            transform: none;
+            left: 0;
+            right: 0;
+            margin-bottom: 500px;
+            text-align: center;
+
+            @include media-breakpoint-down(lg) {
+                margin-bottom: 400px;
+                padding: 0;
+            }
+        }
+
+        #hero {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            padding: 0;
+
+            .owl-stage,
+            .owl-stage-outer,
+            .owl-item,
+            .item {
+                height: 100%;
+            }
+
+            img {
+                position: static;
+                transform: none;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        #search-wrap {
+            padding-top: 45px !important;
+            margin-top: 45px;
+            position: relative;
+            text-align: left;
+
+            @include media-breakpoint-down(lg) {
+                // max-width: 500px;
+                margin: 30px auto 0;
+            }
+
+            h3 {
+                display: none;
+            }
+
+            &:before {
+                content: 'Start Searching...';
+                position: absolute;
+                display: inline-block;
+                font-size: 14px;
+                left: 50%;
+                top: -20px;
+                transform: translateX(-50%);
+                padding: 8px 15px;
+                background-color: $primary;
+                @include color-yiq($primary);
+                font-weight: bold;
+                border-radius: 500px;
+
+                @if $rounded==false {
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+
+    // ------------------------- Hero 3 End ------------------------- //
+}
+
+@else {
+    body.Home {
+        &.fixed-header {
+
+            #hero-wrap #hero,
+            #hero-wrap #hero .item {
+                @include media-breakpoint-down(lg) {
+                    max-height: 600px !important;
+                }
+            }
+        }
+
+        #hero-wrap {
+
+            #hero,
+            #hero .item {
+                height: 70vh;
+                height: 70dvh;
+                min-height: 400px;
+                margin-top: 0;
+
+
+                @include media-breakpoint-down(lg) {
+                    max-height: 400px !important;
+                    padding: 0;
+                }
+            }
+
+            .btn-scroll {
+                z-index: 2;
+
+                @if $rounded==false {
+                    border-radius: 0 !important;
+                }
+            }
+        }
+    }
+}

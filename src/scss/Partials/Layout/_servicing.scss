@@ -1,0 +1,15 @@
+
+section#servicing {
+    svg {
+        path.st0 {
+            fill: $secondary;
+        }
+        path.st1 {
+            fill: transparent;
+        }
+        @include media-breakpoint-down(lg) {
+            height: 50px;
+            width: 50px;
+        }
+    }
+}

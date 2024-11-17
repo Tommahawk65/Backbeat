@@ -1,0 +1,252 @@
+input {
+    visibility: visible;
+}
+
+form {
+    transition: $transition;
+
+    &.sending fieldset {
+        opacity: 0.7;
+        transition: $transition;
+    }
+}
+
+// You can use this darken the time/date input placeholders on safari (bug means they can be quite light before customer enters in something)
+// input:is([type="date"], [type="time"], [type="datetime-local"], [type="month"], [type="week"]) {
+//     -webkit-text-fill-color: $primary !important;
+// }
+
+.form-control {
+    background-color: $card;
+    @include color-yiq($card);
+    border: 0;
+    box-shadow: none;
+    appearance: none;
+    line-height: 2;
+    min-height: 42px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: var(--bs-border-radius);
+
+    @if $rounded==false {
+        border-radius: 0;
+    }
+
+    &.form-control-sm {
+        font-size: 12px;
+        min-height: 36px;
+    }
+
+    &.form-control-lg {
+        font-size: 16px;
+        min-height: 58px;
+    }
+
+    &:focus,
+    &:hover {
+        background-color: $card;
+        @include color-yiq($card);
+        box-shadow: inset 0 0 0 2px darken($card-d, 5%);
+    }
+
+    &::placeholder {
+        @include color-yiq($card);
+        opacity: 0.6;
+    }
+
+    .card &,
+    .bg-card & {
+        background-color: $card-d;
+        @include color-yiq($card-d);
+
+        &::placeholder {
+            @include color-yiq($card-d);
+            opacity: 0.6;
+        }
+    }
+
+    .card.bg-card-d &,
+    .bg-card-d & {
+        background-color: darken($card-d, 5%);
+        @include color-yiq($card-d);
+
+        &::placeholder {
+            @include color-yiq($card-d);
+            opacity: 0.6;
+        }
+    }
+
+    &#vrm,
+    &#txt_Registration {
+        background: gold;
+        border-left: 14px solid #1131d9;
+        color: black;
+        border-radius: 4px;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &::placeholder {
+            color: black;
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: inset 0 0 0 2px darken(gold, 5%);
+        }
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        // -webkit-text-fill-color: #455065; can change colour on safari if needed
+    }
+
+    @each $key,
+    $val in $theme-colors {
+        &.bg-#{$key} {
+            background-color: #{$val} !important;
+            @include color-yiq($val);
+        }
+    }
+
+    &.error {
+        box-shadow: inset 0 0 0 2px tomato!important;
+        color: tomato!important;
+        background-color: rgba(tomato, 0.1)!important;
+    }
+}
+
+.form-floating {
+    .form-control::placeholder {
+        color: transparent !important;
+    }
+}
+
+.control-label {
+    font-family: $title;
+    font-size: 16px;
+    text-align: left !important;
+    margin: 0 0 5px 0 !important;
+}
+
+.input-group-text {
+    background: $secondary;
+    @include color-yiq($secondary);
+    font-weight: 600;
+    border: none;
+
+    @if $rounded==false {
+        border-radius: 0;
+    }
+}
+
+.g-recaptcha {
+    display: inline-block;
+    margin-right: -6px;
+
+    @include media-breakpoint-down(sm) {
+        transform: scale(.85);
+    }
+
+    ~button[disabled] {
+        overflow: visible;
+
+        &:before {
+            content: "Captcha Incomplete";
+            position: absolute;
+            padding: 0 10px;
+            color: red;
+            left: 0;
+            transform: translateX(-100%);
+            font-size: 11px;
+            opacity: 0;
+            transition: ease 0.2s opacity;
+        }
+
+        &.accept-terms:before {
+            content: "Please Provide Consent";
+        }
+
+        &:hover:before {
+            opacity: 1;
+        }
+    }
+}
+
+legend {
+    color: $secondary;
+    font-weight: bold;
+    font-family: $title;
+    border-bottom: 2px solid $card-d;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+
+    @if (lightness($background) <=50%) {
+        border-color: rgba(black, .15);
+    }
+}
+
+label {
+    i {
+        color: tomato;
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    &[for] {
+        cursor: pointer;
+    }
+
+    &.error {
+        color: tomato;
+        display: none!important;
+        font-size: 11px;
+        margin: 0;
+    }
+
+    &.form-horizontal & {
+        padding-top: 10px;
+    }
+}
+
+textarea.form-control {
+    resize: none;
+}
+
+.form-check-input {
+    &:checked {
+        background-color: $secondary;
+        border-color: $secondary;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba($secondary, .25);
+    }
+}
+
+// Squashed Frog
+
+fieldset#condition {
+    .condition-wrap {
+        position: relative;
+        overflow: hidden;
+
+        svg {
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            object-fit: contain;
+        }
+
+        .row {
+            z-index: 1;
+            position: relative;
+        }
+
+        .car-colour {
+            fill: $secondary;
+        }
+    }
+}

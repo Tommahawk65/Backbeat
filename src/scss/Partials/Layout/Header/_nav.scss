@@ -1,0 +1,66 @@
+@mixin hover-state {
+    background-color: $secondary-d;
+    @include color-yiq($secondary-d);
+    box-shadow: none;
+}
+
+[id^="Header"] {
+    #nav nav {
+        li {
+            a {
+                &:focus,
+                &:hover {
+                    @include hover-state;
+                }
+            }
+
+            &.active>a,
+            &.active>a:focus,
+            &.active>a:hover {
+                @include hover-state;
+            }
+
+            .dropdown-menu {
+                border: none;
+                background-color: $primary;
+                margin-top: 5px;
+                border-radius: var(--bs-border-radius);
+                padding-left: 8px;
+                padding-right: 8px;
+
+                @if $rounded==false {
+                    border-radius: 0 !important;
+                    padding-left: 0;
+                    padding-right: 0;
+                    margin-top: 0;
+                }
+
+                &>li {
+                    &>a {
+                        @include color-yiq($primary-d);
+
+                        &:hover,
+                        &:focus {
+                            background-color: darken($primary-d, 4%);
+                            @include color-yiq(darken($primary-d, 4%));
+                        }
+
+                        @include media-breakpoint-up(lg) {
+                            padding: 10px 100px 10px 20px;
+                        }
+                    }
+
+                    @include media-breakpoint-up(lg) {
+                        display: block;
+                    }
+                }
+
+                @include media-breakpoint-up(lg) {
+                    max-height: 60vh;
+                    max-height: 60dvh;
+                    overflow-y: auto;
+                }
+            }
+        }
+    }
+}

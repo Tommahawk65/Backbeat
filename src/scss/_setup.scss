@@ -1,0 +1,211 @@
+// Main Colours
+$background: #fff;
+$background-l: lighten($background, 5%);
+$background-d: darken($background, 5%);
+$primary: #1b1e24;
+$primary-l: lighten($primary, 5%);
+$primary-d: darken($primary, 5%);
+$secondary: #335f8e;
+$secondary-l: lighten($secondary, 5%);
+$secondary-d: darken($secondary, 5%);
+$card: #F0F3F5;
+$card-l: lighten($card, 5%);
+$card-d: darken($card, 5%);
+
+// Colours
+$warranty: #36b15c; // AA #ffd200 | A1 #ea6b07 | AutoGuard #ce3229 | AutoGroup #6b4180 | AutoTrust #379fdc | AutoTrust #379fdc | AutoSelect #a97a1e | CustomerProtect #f18b20 | Momentum #36b15c | Handler #fddc05 | RAC #ef6c00 | WarrantyWise #ff8300 | WMS #009fe4, #062d73, #f34f0b | WarrantyAssist #0682c5 | WarrantyFirst #1c3262, #6bb724 | WSG #d1232a
+$finance: #222c8b; // Evo #1f1a47, #fee600, #0cb5a6 | Close #222c8b | MotoNovo #239ab0, #ec9033 | Santander #ec0000
+$reserve: #fbb333; // #273d7e, #259cd5, #fbb333
+$facebook: #3b5998; //#1877f2
+$twitter: #4fa9ee;
+$google: #ea4335; //#4285f4, #34a853, #fbbc05
+$youtube: #d80606; //#ff0000
+$instagram: #c32aa3; //#4c5fd7, #7232bd, #f46f30, #ffdc7d
+$linkedin: #0077b5;
+$snapchat: #fffc00;
+$tiktok: #69c9d0; //#010101, #ee1d52
+$whatsapp: #128c7e; //#25d366, #075e54
+$autotrader: #1BA09C; //#b11112, #222c5e
+$car-dealer-reviews: #6d18e9; //#1482ff
+$trustpilot: #04da8d; //#b11112, #222c5e
+$yelp: #f43939;
+$yell: #fedb00;
+$cargurus: #00a0dd;
+$ulez: #5e982f;
+$lez: #009a73;
+
+// Options
+$grid-breakpoints: (xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px); // default bs5 breakpoints (used here for breakpoints mixin i.e media-breakpoint-down(lg))
+
+$img-ratio: .75; // Stock image height as a fraction, (4:3 = .75, 16:9 = .56 etc.)
+
+$contain-body: 2200px; // max-width on body: 'off' or '...px'
+
+$container: 1660px;
+$container-max-widths: (sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1660px);
+
+$transition: 0.2s all ease-out;
+
+//btns
+$ink: true; // (ink effect on buttons)
+$btn-gradient: false; // Gradient on btn, not fixed bg
+$grad-overlay: linear-gradient(to right, rgba(black, .25) 0%, rgba(white, .15) 51%, rgba(black, .25) 100%);
+$rounded: false; // used bootstrap 5 rounded class alongside details .etc if you wish full rounded elements
+
+// Widgets and Components
+$ql_half: false;
+$theme_3_hero: false;
+
+// Fonts
+$title: "Archivo Narrow";
+$title-weights: "400;700"; // semi-colon separated, no spaces (Check italic mark-up slightly different, may need to be added manually)
+
+$body: "Poppins";
+$body-weights: "400;600;700";
+
+$abobe_fonts: false;
+$adobe_font: ""; // include the ID from your font pack i.e. zcl2yua
+
+// Theme Colors
+$theme-colors: (primary: $primary,
+    primary-l: $primary-l,
+    primary-d: $primary-d,
+    secondary: $secondary,
+    secondary-l: $secondary-l,
+    secondary-d: $secondary-d,
+    background: $background,
+    background-l: $background-l,
+    background-d: $background-d,
+    card: $card,
+    card-d: $card-d,
+    card-l: $card-l,
+    warranty: $warranty,
+    finance: $finance,
+    reserve: $reserve,
+    facebook: $facebook,
+    twitter: $twitter,
+    google: $google,
+    youtube: $youtube,
+    instagram: $instagram,
+    linkedin: $linkedin,
+    snapchat: $snapchat,
+    tiktok: $tiktok,
+    whatsapp: $whatsapp,
+    autotrader: $autotrader,
+    car-dealer-reviews: $car-dealer-reviews,
+    trustpilot: $trustpilot,
+    yelp: $yelp,
+    yell: $yell,
+    cargurus: $cargurus,
+    ulez: $ulez,
+    lez: $lez,
+    white: #FFF,
+    black: #000,
+    light: #fff,
+    dark: #2b2b2b);
+
+// Color Yiq (needs to be in order)
+@mixin color-yiq($color) {
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+
+    $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+    @if ($yiq >=150) {
+        $dark-yiq: 2b2b2b; // without #
+        color: unquote("##{$dark-yiq}");
+
+        .form-select,
+        &.form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23#{$dark-yiq}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); // stroke must start in %23 not # for rgb
+            color: unquote("##{$dark-yiq}");
+        }
+    }
+
+    @else {
+        $light-yiq: fff; // without #
+        color: unquote("##{$light-yiq}");
+
+        .form-select,
+        &.form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23#{$light-yiq}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+            color: unquote("##{$light-yiq}");
+        }
+
+        ::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+    }
+}
+
+.card {
+    @include color-yiq($card); // order thing, has to be above the map below or overrides yiq
+}
+
+@each $key,
+$val in $theme-colors {
+    .bg-#{$key} {
+        background-color: #{$val} !important;
+        @include color-yiq($val);
+    }
+
+    .text-#{$key} {
+        color: #{$val} !important;
+    }
+
+    .border-bottom {
+        &.border-#{$key} {
+            border-bottom-color: #{$val} !important;
+        }
+    }
+
+    .border-top {
+        &.border-#{$key} {
+            border-top-color: #{$val} !important;
+        }
+    }
+
+    .border-left,
+    .border-start {
+        &.border-#{$key} {
+            border-left-color: #{$val} !important;
+        }
+    }
+
+    .border-right,
+    .border-end {
+        &.border-#{$key} {
+            border-right-color: #{$val} !important;
+        }
+    }
+
+    .border-#{$key} {
+        border-color: #{$val} !important;
+
+        &.border-75 {
+            border-color: rgba($val, 0.75) !important;
+        }
+
+        &.border-50 {
+            border-color: rgba($val, 0.5) !important;
+        }
+
+        &.border-25 {
+            border-color: rgba($val, 0.25) !important;
+        }
+
+        &.border-10 {
+            border-color: rgba($val, 0.10) !important;
+        }
+    }
+}

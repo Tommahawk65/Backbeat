@@ -1,0 +1,93 @@
+@mixin buttonEffects($bg-color) {
+    @if $ink {
+        .ink {
+            display: block;
+            position: absolute;
+            border-radius: 100%;
+            transform: scale(0);
+            $re: red($bg-color);
+            $gr: green($bg-color);
+            $bl: blue($bg-color);
+
+            $contrast: (($re * 299) + ($gr * 587) + ($bl * 114)) / 1000;
+
+            @if ($contrast >=150) {
+                background: darken($bg-color, 10%);
+            }
+
+            @else {
+                background: lighten($bg-color, 10%);
+            }
+
+            &.animate {
+                animation: ripple 0.4s linear;
+            }
+
+            @if $rounded==false {
+                border-radius: 0;
+            }
+        }
+    }
+
+    @else {
+        .ink {
+            display: none
+        }
+    }
+
+    @include color-yiq($bg-color);
+
+    &:focus,
+    &:hover {
+        @include color-yiq($bg-color);
+
+        @if $btn-gradient {
+            background-color: $bg-color;
+            background-position: right;
+        }
+
+        @else {
+            background: darken($bg-color, 5%);
+        }
+    }
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    @include buttonEffects($background);
+
+    &:active,
+    &:focus,
+    &:hover,
+    .open & {
+        box-shadow: none;
+        outline: none !important;
+    }
+}
+
+.btn-dropdown {
+    border: none;
+    background-color: $secondary-d;
+
+    @if $rounded==false {
+        border-radius: 0;
+    }
+
+    a {
+        @include color-yiq($secondary-d);
+
+        &:hover,
+        &:focus {
+            background-color: darken($secondary-d, 4%);
+            @include color-yiq(darken($secondary-d, 4%));
+        }
+    }
+}
+
+@each $btn,
+$btn-colour in $theme-colors {
+    .btn.btn-#{$btn} {
+        @include buttonEffects($btn-colour);
+    }
+}

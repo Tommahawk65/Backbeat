@@ -1,0 +1,317 @@
+img[class*="lazyload"] {
+    max-width: 100%;
+    visibility: hidden;
+
+    &.lazyloaded {
+        visibility: visible;
+    }
+}
+
+html {
+    background-color: $primary-l;
+    background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
+    overflow: initial !important;
+    background-attachment: fixed;
+}
+
+body {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: $body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+    position: relative;
+    margin: 0 auto !important;
+    background: $background;
+    @include color-yiq($background);
+    overflow-y: scroll;
+
+    @include media-breakpoint-down(lg) {
+        font-size: 12px;
+        overflow-x: hidden !important;
+    }
+
+    @if $contain-body !=off {
+        max-width: $contain-body;
+    }
+}
+
+$cover-bg: black;
+
+@if (lightness($background) <=50%) {
+    $cover-bg: $background;
+}
+
+@if (lightness($primary) <=50%) {
+    $cover-bg: $primary;
+}
+
+[class*="cover"] {
+    &.object-fit-cover {
+        &:before {
+            display: none;
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        pointer-events: none;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        background-color: rgba($cover-bg, .9);
+    }
+
+    .container,
+    .container-fluid,
+    [class*="container"] {
+        position: relative;
+        z-index: 3;
+    }
+
+    @for $i from 1 through 10 {
+
+        // you can use .cover, .cover-10 .cover-20 .cover-30 etc
+        &.cover-#{$i*10} {
+            $cover: rgba($cover-bg, ($i*.10));
+
+            &:before {
+                background-color: $cover;
+            }
+        }
+    }
+}
+
+.cover-gradient-bottom {
+    &:before {
+        background: linear-gradient(0deg, rgba($primary, 0.8) 0%, rgba($primary, 0) 100%);
+    }
+}
+
+.cover-gradient-top {
+    &:before {
+        background: linear-gradient(180deg, rgba($primary, 0.8) 0%, rgba($primary, 0) 100%);
+    }
+}
+
+.cover-gradient-left,
+.cover-gradient-start {
+    &:before {
+        background: linear-gradient(90deg, rgba($primary, 0.8) 0%, rgba($primary, 0) 100%);
+    }
+}
+
+.cover-gradient-right,
+.cover-gradient-end {
+    &:before {
+        background: linear-gradient(-90deg, rgba($primary, 0.8) 0%, rgba($primary, 0) 100%);
+    }
+}
+
+a[class*="cover"] {
+
+    // if you 'cover' an <a> it removes the cover on hover
+    &:before {
+        transition: $transition;
+    }
+
+    &:hover:before {
+        transition: $transition;
+        background-color: rgba($cover-bg, .2);
+    }
+}
+
+// Tables 
+.table>:not(caption)>*>* {
+    --bs-table-bg: transparent;
+    --bs-table-color: auto;
+}
+
+@each $key,
+$val in $container-max-widths {
+
+    $direction: (start: left,
+            top: top,
+            bottom: bottom,
+            end: right);
+
+    @each $key2,
+    $val2 in $direction {
+        .border-#{$key2}-#{$key}-none {
+            @include media-breakpoint-only(#{$key}) {
+                border-#{$val2}: 0 none !important;
+            }
+        }
+
+        .border-#{$key2}-none.border-#{$key2}-#{$key}-block {
+            @include media-breakpoint-down(#{$key}) {
+                border-#{$val2}: 0 none !important;
+            }
+        }
+    }
+
+    .border-#{$key}-none {
+        @include media-breakpoint-only(#{$key}) {
+            border: 0 none !important;
+        }
+    }
+
+    .border-none.border-#{$key}-block {
+        @include media-breakpoint-down(#{$key}) {
+            border: 0 none !important;
+        }
+    }
+
+    .position-#{$key}-absolute {
+        @include media-breakpoint-up(#{$key}) {
+            position: absolute !important;
+        }
+    }
+
+    $sizes: (100: 100%,
+        75: 75%,
+        50: 50%,
+        25: 25%,
+        0: 0%,
+        auto: auto);
+
+    @each $key3,
+    $val3 in $sizes {
+        .w-#{$key}-#{$key3} {
+            @include media-breakpoint-up(#{$key}) {
+                width: #{$val3} !important;
+            }
+        }
+
+        .mw-#{$key}-#{$key3} {
+            @include media-breakpoint-up(#{$key}) {
+                max-width: #{$val3} !important;
+            }
+        }
+
+        .mw-#{$key3} {
+            max-width: #{$val3} !important;
+        }
+
+        .min-w-#{$key}-#{$key3} {
+            @include media-breakpoint-up(#{$key}) {
+                min-width: #{$val3} !important;
+            }
+        }
+
+        .min-w-#{$key3} {
+            min-width: #{$val3} !important;
+        }
+
+        .vw-#{$key}-#{$key3} {
+            @include media-breakpoint-up(#{$key}) {
+                width: #{$key3}vw !important;
+                width: #{$key3}dvw !important;
+            }
+        }
+
+        .vw-#{$key3} {
+            width: #{$key3}vw !important;
+            width: #{$key3}dvw !important;
+        }
+
+        .min-vw-#{$key}-#{$key3} {
+            @include media-breakpoint-up(#{$key}) {
+                min-width: #{$key3}vw !important;
+                min-width: #{$key3}dvw !important;
+            }
+        }
+
+        .min-vw-#{$key3} {
+            min-width: #{$key3}vw !important;
+            min-width: #{$key3}dvw !important;
+        }
+
+        .max-vw-#{$key}-#{$key3} {
+            @include media-breakpoint-up(#{$key}) {
+                max-width: #{$key3}vw !important;
+                max-width: #{$key3}dvw !important;
+            }
+        }
+
+        .max-vw-#{$key3} {
+            max-width: #{$key3}vw !important;
+            max-width: #{$key3}dvw !important;
+        }
+
+        .h-#{$key}-#{$key3} {
+            @include media-breakpoint-up(#{$key}) {
+                height: #{$val3} !important;
+            }
+        }
+
+        .mh-#{$key}-#{$key3} {
+            @include media-breakpoint-up(#{$key}) {
+                max-height: #{$val3} !important;
+            }
+        }
+        
+
+        .mh-#{$key3} {
+            max-height: #{$val3} !important;
+        }
+
+        .min-h-#{$key}-#{$key3} {
+            @include media-breakpoint-up(#{$key}) {
+                min-height: #{$val3} !important;
+            }
+        }
+        
+
+        .min-h-#{$key3} {
+            min-height: #{$val3} !important;
+        }
+
+        .vh-#{$key}-#{$key3} {
+            @include media-breakpoint-up(#{$key}) {
+                height: #{$key3}vh !important;
+                height: #{$key3}dvh !important;
+            }
+        }
+
+        .vh-#{$key3} {
+            height: #{$key3}vh !important;
+            height: #{$key3}dvh !important;
+        }
+
+        .min-vh-#{$key}-#{$key3} {
+            @include media-breakpoint-up(#{$key}) {
+                min-height: #{$key3}vh !important;
+                min-height: #{$key3}dvh !important;
+            }
+        }
+
+        .min-vh-#{$key3} {
+            min-height: #{$key3}vh !important;
+            min-height: #{$key3}dvh !important;
+        }
+
+        .max-vh-#{$key}-#{$key3} {
+            @include media-breakpoint-up(#{$key}) {
+                max-height: #{$key3}vh !important;
+                max-height: #{$key3}dvh !important;
+            }
+        }
+
+        .max-vh-#{$key3} {
+            max-height: #{$key3}vh !important;
+            max-height: #{$key3}dvh !important;
+        }
+    }
+}
+
+.flex-xs-fill {
+    @include media-breakpoint-down(md) {
+        flex: 1 1 auto !important;
+    }
+}

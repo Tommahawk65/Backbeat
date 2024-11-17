@@ -1,0 +1,278 @@
+$logo-mobile-height: 40; // Height of the logo on mobile without px (should be same for all headers, mainly for fixed header but use it for sticky as well)
+$logo-mobile-margin-y: 20; // Y margin of the logo on mobile
+
+[id^="Header"] {
+    background-color: $primary;
+    @include color-yiq($primary);
+    width: 100%;
+    z-index: 1043 !important;
+    transition: 0.5s ease;
+
+    body.fixed-header & {
+        background-color: rgba($primary, 0.9);
+
+        @include media-breakpoint-up(lg) {
+            background-color: rgba($primary, 0.85);
+            backdrop-filter: blur(2px);
+        }
+    }
+
+    .scrolled & {
+        @include media-breakpoint-down(lg) {
+            transition: 0.5s ease;
+            top: -#{$logo-mobile-height + ($logo-mobile-margin-y * 2)}px !important; // Dependent on your mobile logo especially on line 57
+        }
+    }
+
+    @if $contain-body !=off {
+        max-width: $contain-body;
+    }
+
+    .navbar-nav {
+        padding: 5px 0;
+        gap: 3px;
+
+        @if $rounded==false {
+            padding: 0;
+            gap: 0;
+        }
+    }
+
+    #nav nav {
+        margin: 0;
+        list-style: none;
+        text-align: center;
+
+        li {
+            >a {
+                text-transform: uppercase;
+                font-size: 13px;
+                letter-spacing: 1.2px;
+                line-height: 20px;
+                padding: 15px;
+                display: block;
+                @include color-yiq($primary-l);
+                border-radius: var(--bs-border-radius);
+
+                @if $rounded==false {
+                    border-radius: 0 !important;
+                }
+            }
+        }
+    }
+
+    .logo {
+        display: inline-block;
+
+        img {
+            margin: 20px 0;
+            vertical-align: top;
+            transition: 0.5s ease;
+            height: auto;
+
+            @include media-breakpoint-down(lg) {
+                margin: #{$logo-mobile-margin-y}px 0;
+                height: #{$logo-mobile-height}px;
+                width: auto;
+            }
+        }
+    }
+
+    #header-review {
+        margin-left: 0;
+        align-items: center;
+
+        .header-reviews {
+            p {
+                font-size: 12px;
+                font-weight: bold;
+                white-space: nowrap;
+                margin: 5px 10px 0 10px;
+            }
+
+            i {
+                margin: 0 1px;
+                color: gold;
+            }
+
+            .bkg {
+                width: 100%;
+                height: 25px;
+                background-size: contain !important;
+            }
+
+            .bkg-autotrader {
+                background: url("/dist/img/partners/svg/autotrader-white.svg") no-repeat center center;
+            }
+
+            .bkg-google {
+                background: url("/dist/img/partners/svg/google-white.svg") no-repeat center center;
+            }
+
+            .bkg-cargurus {
+                background: url("/dist/img/partners/svg/cargurus-white.svg") no-repeat center center;
+            }
+
+            .bkg-yell {
+                background: url("/dist/img/partners/svg/yell-yellow.svg") no-repeat center center;
+            }
+
+            .bkg-car-dealer-reviews {
+                background: url("/dist/img/partners/svg/car-dealer-reviews.svg") no-repeat center center;
+            }
+
+            .yell-section i {
+                color: #000 !important;
+            }
+
+            .bkg-facebook {
+                background: url("/dist/img/partners/svg/facebook-white.svg") no-repeat center center;
+                height: 20px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    #bottom {
+        .h4 {
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        svg {
+            height: 18px;
+            width: 18px;
+            vertical-align: sub;
+            margin-right: 5px;
+            display: inline-block;
+
+            path {
+                fill: white;
+            }
+
+            &#icon-mot {
+                height: 24px;
+                background: #0184d6;
+                padding: 4px;
+                width: 24px;
+                border-radius: 2px;
+                vertical-align: middle;
+            }
+        }
+
+        @include media-breakpoint-down(lg) {
+            .h4 {
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+/*-------------------------------- Padding for top of page on pages without a hero -----------------------------------*/
+body.VehicleDetails.fixed-header,
+body[class*="Stock"].fixed-header {
+    // Default sizes but adjust to your logo size
+    border-top: 165px solid $primary; // HEADER A + C
+    // border-top: 160px solid $primary; HEADER B
+    // border-top: 180px solid $primary; HEADER D
+    // border-top: 99px solid $primary; HEADER E
+
+    @include media-breakpoint-down(lg) {
+        // should be the same on all headers as logo is the same size on mobile but you can adjust using the variable at the top
+        border-top: #{$logo-mobile-height + ($logo-mobile-margin-y * 2) + 58}px solid $primary; // 58 is dependant on the mobile menu bar and margins .etc
+    }
+}
+
+/*-------------------------------- Header A -----------------------------------*/
+[id^="Header"].Header_A {
+    .scrolled & {
+        transition: 0.5s ease;
+        top: -115px;
+    }
+
+    #header-info {
+        font-size: 13px;
+    }
+
+    .header-tel {
+        font-size: 22px;
+    }
+}
+
+/*-------------------------------- Header B -----------------------------------*/
+[id^="Header"].Header_B {
+    #details-bar {
+        @include color-yiq($secondary);
+
+        a {
+            font-size: 13px;
+        }
+
+        .social a {
+            margin: 0 0 0 2px;
+            line-height: 28px;
+            padding: 0;
+            width: 28px;
+        }
+    }
+
+    .scrolled & {
+        .logo img {
+            @include media-breakpoint-up(lg) {
+                transition: 0.5s ease;
+                width: 170px;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .offcanvas-body {
+            background-color: transparent !important;
+        }
+    }
+}
+
+/*-------------------------------- Header C -----------------------------------*/
+[id^="Header"].Header_C {
+    .scrolled & {
+        transition: 0.5s ease;
+        top: -115px;
+    }
+
+    .header-info {
+        width: 315px;
+        font-weight: bold;
+        font-size: 13px;
+    }
+}
+
+/*-------------------------------- Header D -----------------------------------*/
+[id^="Header"].Header_D {
+    .scrolled & {
+        transition: 0.5s ease;
+        top: -131px;
+    }
+
+    #header-contact {
+        font-weight: bold;
+    }
+}
+
+/*-------------------------------- Header E -----------------------------------*/
+[id^="Header"].Header_E {
+    .logo {
+        img {
+            @include media-breakpoint-up(lg) {
+                max-width: 100%;
+                width: 220px;
+                height: auto;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .offcanvas-body {
+            background-color: transparent !important;
+        }
+    }
+}

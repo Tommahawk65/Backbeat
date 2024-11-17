@@ -1,0 +1,42 @@
+ul.nav-tabs {
+    padding: 0;
+    border: 0 none;
+    margin-top: 0;
+    padding-bottom: 10px;
+    overflow: auto;
+
+    @if $rounded==false {
+        padding-bottom: 0;
+    }
+
+    &>li {
+        a {
+            display: block;
+            line-height: 55px;
+            font-size: 18px;
+            border-radius: 5px;
+            // @include color-yiq($background);
+            opacity: 0.7;
+
+            &.sm {
+                font-size: 15px;
+            }
+
+            @if $rounded==false {
+                border-radius: 0;
+            }
+
+            &.active {
+                background: $primary;
+                opacity: 1;
+                @include color-yiq($primary);
+            }
+
+            &:hover {
+                background: rgba($primary, 0.8);
+                opacity: 1;
+                @include color-yiq($primary);
+            }
+        }
+    }
+}

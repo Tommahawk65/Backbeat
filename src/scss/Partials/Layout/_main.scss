@@ -1,0 +1,113 @@
+meta[name="theme-color"] {
+    color: $secondary;
+}
+
+.background {
+  
+        &.img-1 {
+            background-image: url("src/assets/hero-1-1920.jpg");
+
+            @include media-breakpoint-down(lg) {
+                background-image: url("src/assets/hero-1-640.jpg");
+
+                @media (min-resolution: 1.3dppx) {
+                    background-image: url("src/assets/hero-1-1280.jpg");
+                }
+            }
+        }
+    
+
+    display: block;
+    padding-bottom: 640px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+
+    body.touch & {
+        @include media-breakpoint-down(xl) {
+            background-attachment: scroll;
+        }
+    }
+
+    &.static {
+        background-attachment: scroll;
+    }
+
+    &.sm {
+        padding-bottom: 200px;
+    }
+
+    &.md {
+        padding-bottom: 420px;
+    }
+
+    &.lg {
+        padding-bottom: 100vh;
+        padding-bottom: 100dvh;
+
+        &#hero {
+            height: initial !important;
+        }
+    }
+
+    &.img {
+        padding-bottom: ($img-ratio * 99%);
+    }
+}
+
+.map {
+    padding-bottom: 450px;
+
+    @include media-breakpoint-down(sm) {
+        padding-bottom: 150px;
+    }
+}
+
+.table-dark,
+.table-light {
+
+    &>:not(caption)>*>* {
+        background: transparent !important;
+    }
+}
+
+.popover {
+    color: $primary;
+}
+
+.custom-scrollbar {
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $card-d;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+        padding: 0 5px;
+        background: $secondary;
+    }
+}
+
+#blogPost {
+    img {
+        width: 100%;
+    }
+}
+
+@for $i from 1 through 20 {
+
+    // Z-Index 
+    .z-index-#{$i} {
+        z-index: #{$i};
+    }
+}
+
+vc-root::part(container) {
+    z-index: 1030;
+}

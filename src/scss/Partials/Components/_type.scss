@@ -1,0 +1,20 @@
+$hr-margin: 20px;
+
+hr {
+    opacity: 1;
+    border-top: 1px solid $primary;
+
+    &.sm {
+        width: 120px;
+        margin: $hr-margin auto;
+        border-width: 2px;
+    }
+
+    &.left {
+        margin: $hr-margin auto $hr-margin 0;
+    }
+
+    &.right {
+        margin: $hr-margin 0 $hr-margin auto;
+    }
+}

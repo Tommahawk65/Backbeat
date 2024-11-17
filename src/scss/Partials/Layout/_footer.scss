@@ -1,0 +1,29 @@
+#Footer {
+    .logo img {
+        filter: grayscale(1) brightness(0) invert(1);
+    }
+
+    .directions {
+        svg {
+            fill: white;
+
+            @include media-breakpoint-down(md) {
+                width: 45px;
+            }
+        }
+    }
+
+    .website-opening-hours .table {
+        border-bottom-color: rgba(#fff, 0.1);
+    }
+}
+
+.website-opening-hours .table {
+    color: inherit;
+
+    .bg-primary-l &,
+    .bg-primary &,
+    .bg-primary-d & {
+        border-bottom-color: rgba(#fff, 0.1);
+    }
+}

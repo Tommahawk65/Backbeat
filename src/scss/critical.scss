@@ -1,0 +1,15 @@
+@import 'setup';
+
+// Layout
+@import 'Partials/Layout/breakpoints';
+@import 'Partials/Layout/grid';
+@import 'Partials/Layout/main-Crit';
+@import 'Partials/Layout/Header/nav-Crit';
+
+// Components
+@import 'Partials/Components/loader';
+@import 'Partials/Components/hero-Crit';
+@import 'Partials/Components/buttons-Crit';
+@import 'Partials/Components/type-Crit';
+@import 'Partials/Components/cards';
+

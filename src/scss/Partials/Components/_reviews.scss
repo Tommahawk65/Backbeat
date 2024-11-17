@@ -1,0 +1,220 @@
+[id$="Scroller"].testimonials {
+    &.single {
+        .item {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: ease 1s opacity, ease 1s transform;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        p {
+            font-size: 18px !important;
+
+            .background & {
+                @include color-yiq($primary);
+            }
+
+            &.name {
+                font-size: 16px !important;
+            }
+
+            @include media-breakpoint-down(xl) {
+                font-size: 15px !important;
+            }
+
+            @include media-breakpoint-down(md) {
+                font-size: 12px !important;
+            }
+        }
+
+        b {
+            text-transform: uppercase;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .active .item {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    &.multi {
+        .item {
+            border-bottom: 2px solid $secondary;
+            padding: 18px;
+            background-color: $background;
+        }
+
+        i {
+            font-size: 18px;
+        }
+
+        b {
+            @include color-yiq($primary);
+        }
+
+        p.name {
+            color: $secondary;
+        }
+    }
+
+    p {
+        font-size: 13px;
+
+        &.name {
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+    }
+
+    i.fa-star,
+    i.fa-star-half {
+        color: gold !important;
+    }
+}
+
+#TestimonialsGroup {
+    .masonry {
+        column-count: 3;
+        column-gap: 15px;
+
+        @include media-breakpoint-down(xl) {
+            column-count: 2;
+        }
+
+        @include media-breakpoint-down(sm) {
+            column-count: 1;
+        }
+
+        &>div {
+            page-break-inside: avoid;
+            break-inside: avoid-column;
+        }
+
+        .card {
+            box-shadow: none;
+
+            .badge.bg-website,
+            .badge.bg-other {
+                background-color: $secondary;
+            }
+        }
+    }
+
+    i.fa-star,
+    i.fa-star-half {
+        color: gold !important;
+    }
+}
+
+#scores {
+    .scores-wrap & {
+        padding: 0 !important;
+        background: transparent;
+        overflow: visible;
+
+        &:before {
+            background: transparent;
+        }
+
+        .container {
+            padding: 0 !important;
+        }
+    }
+
+    .row {
+        position: relative;
+        z-index: 2;
+
+        .card {
+            overflow: hidden;
+            box-shadow: none;
+
+            &:before {
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 120px 0 0 120px;
+                border-color: transparent transparent transparent #FFF;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                opacity: 0.05;
+
+                @include media-breakpoint-down(md) {
+                    display: none;
+                }
+            }
+        }
+
+        .scores__info {
+            position: relative;
+            z-index: 4;
+        }
+
+        h3 {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: rgba(#FFF, 0.1);
+            border-radius: 500px;
+
+            @if $rounded==false {
+                border-radius: 0;
+            }
+        }
+
+        h4 {
+            font-size: 32px;
+
+            @include media-breakpoint-down(xl) {
+                font-size: 18px;
+            }
+
+            small {
+                color: #FFF;
+                opacity: 0.6;
+            }
+
+            strong {
+                margin: 0 5px;
+            }
+        }
+
+        .scores__rating {
+            font-size: 164px;
+            position: absolute;
+            font-family: $title, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            font-weight: bold;
+            z-index: 3;
+            right: -20px;
+            bottom: -25px;
+            line-height: 1;
+            color: rgba(#FFF, 0.1);
+        }
+
+        .fa-star,
+        .fa-star-half {
+            font-size: 24px;
+            color: gold;
+
+            @include media-breakpoint-down(xl) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .bg-yell {
+
+        .fa-star,
+        .fa-star-half {
+            color: #000;
+        }
+    }
+
+    a[href^="/reviews"] {
+        display: none;
+    }
+}
