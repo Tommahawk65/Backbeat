@@ -1,6 +1,6 @@
 @import 'setup';
 
-// Layout
+
 @import 'Partials/Layout/breakpoints';
 @import 'Partials/Layout/main';
 @import 'Partials/Layout/Header/nav';
@@ -10,7 +10,7 @@
 @import 'Partials/Layout/footer';
 @import 'Partials/Layout/print';
 
-// Components
+
 @import 'Partials/Components/hero';
 @import 'Partials/Components/buttons';
 @import 'Partials/Components/type';
@@ -19,6 +19,6 @@
 @import 'Partials/Components/aside';
 @import 'Partials/Components/reviews';
 
-// Plugins
+
 @import 'Partials/Plugins/owl-carousel';
 @import 'Partials/Plugins/swipebox';

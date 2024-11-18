@@ -1,10 +1,10 @@
 @import 'setup';
 
 // Layout
-@import 'Partials/Layout/breakpoints';
-@import 'Partials/Layout/grid';
+@import 'Partials/Layout/breakpoints.scss';
+@import 'Partials/Layout/grid.scss';
 @import 'Partials/Layout/main-Crit';
-@import 'Partials/Layout/Header/nav-Crit';
+@import 'Partials/Layout/Header/nav-Crit.scss';
 
 // Components
 @import 'Partials/Components/loader';
