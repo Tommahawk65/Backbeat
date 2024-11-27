@@ -1,9 +1,10 @@
 import Fixed from '../components/Hero/Fixed';
+import Carousel from '../components/Hero/Carousel';
 
 function Home() {
     return <>
 
-        <Fixed />
+        <Carousel />
         <section id="main" className="py-4 py-lg-5">
             <div className="container">
                 <div className="row align-items-center g-3">
