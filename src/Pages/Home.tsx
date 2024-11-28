@@ -28,12 +28,12 @@ function Home() {
                 <div className="row">
                     <div className="col-md-6 video-wrap">
                         <div className="ratio ratio-16x9">
-                            <iframe src="https://www.youtube-nocookie.com/embed/Pzc351sIark?rel=0" width="100%" height="250" frameborder="0" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://www.youtube-nocookie.com/embed/Pzc351sIark?rel=0" width="100%" height="250"></iframe>
                         </div>
                     </div>
                     <div className="col-md-6 video-wrap">
                         <div className="ratio ratio-16x9 mt-2 mt-sm-0">
-                            <iframe src="https://www.youtube-nocookie.com/embed/qywLgFDvN74?rel=0" width="100%" height="250" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://www.youtube-nocookie.com/embed/qywLgFDvN74?rel=0" width="100%" height="250"></iframe>
                         </div>
                     </div>
                 </div>
