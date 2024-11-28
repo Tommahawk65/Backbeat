@@ -9,7 +9,7 @@ function Home() {
             <div className="container">
                 <div className="row align-items-center g-3">
                     <div className="col-md-6 ">
-                        <img src="src/assets/home-image1.png" className="img-fluid" alt="Home Image" title="Home Image"/>
+                        <img src="img/assets/home-image1.png" className="img-fluid" alt="Home Image" title="Home Image"/>
                     </div>
                     <div className="col-md-5 offset-md-1 ">
                     <h2 className="h1 mb-1">Backbeat Wedding Band</h2>
