@@ -1,5 +1,5 @@
-$logo-mobile-height: 40; // Height of the logo on mobile without px (should be same for all headers, mainly for fixed header but use it for sticky as well)
-$logo-mobile-margin-y: 20; // Y margin of the logo on mobile
+$logo-mobile-height: 55; // Height of the logo on mobile without px (should be same for all headers, mainly for fixed header but use it for sticky as well)
+$logo-mobile-margin-y: 10; // Y margin of the logo on mobile
 
 [id^="Header"] {
     background-color: $primary;

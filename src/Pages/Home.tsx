@@ -1,5 +1,6 @@
 import Fixed from '../components/Hero/Fixed';
 import Carousel from '../components/Hero/Carousel';
+import HomeImg1 from'/src/assets/home-image1.png';
 
 function Home() {
     return <>
@@ -9,7 +10,7 @@ function Home() {
             <div className="container">
                 <div className="row align-items-center g-3">
                     <div className="col-md-6 ">
-                        <img src="img/assets/home-image1.png" className="img-fluid" alt="Home Image" title="Home Image"/>
+                        <img src={HomeImg1} className="img-fluid" alt="Home Image" title="Home Image"/>
                     </div>
                     <div className="col-md-5 offset-md-1 ">
                     <h2 className="h1 mb-1">Backbeat Wedding Band</h2>
@@ -44,33 +45,104 @@ function Home() {
                 <div className="row align-items-center justify-content-center g-3">
                     <div className="col-6 col-md-3 px-2 px-xxl-4">
                         <div className="card-body bg-white p-4" style={{ borderRadius: 30 }}>
-                            <img src="src/assets/badges/1.png" className="img-fluid mb-2" alt="Home Image" title="Home Image"/>
-                            <h3 className="h2 text-secondary">Secure Bookings</h3>
+                            <img src="src/assets/badges/1.png" className="img-fluid mb-2" alt="Home Image" title="Home Image" width="85"/>
+                            <h3 className="h3 text-secondary">Secure Bookings</h3>
                             <p>Peace of mind with professional contracts.</p>
                         </div>
                     </div>
                     <div className="col-6 col-md-3 px-2 px-xxl-4">
                         <div className="card-body bg-white p-4" style={{ borderRadius: 30 }}>
-                            <img src="src/assets/badges/2.png" className="img-fluid mb-2" alt="Home Image" title="Home Image"/>
-                            <h3 className="h2 text-secondary">Secure Bookings</h3>
+                            <img src="src/assets/badges/2.png" className="img-fluid mb-2" alt="Home Image" title="Home Image" width="85"/>
+                            <h3 className="h3 text-secondary">Secure Bookings</h3>
                             <p>Peace of mind with professional contracts.</p>
                         </div>
                     </div>
                     <div className="col-6 col-md-3 px-2 px-xxl-4">
                         <div className="card-body bg-white p-4" style={{ borderRadius: 30 }}>
-                            <img src="src/assets/badges/3.png" className="img-fluid mb-2" alt="Home Image" title="Home Image"/>
-                            <h3 className="h2 text-secondary">Secure Bookings</h3>
+                            <img src="src/assets/badges/3.png" className="img-fluid mb-2" alt="Home Image" title="Home Image" width="85"/>
+                            <h3 className="h3 text-secondary">Secure Bookings</h3>
                             <p>Peace of mind with professional contracts.</p>
                         </div>
                     </div>
                     <div className="col-6 col-md-3 px-2 px-xxl-4">
                         <div className="card-body bg-white p-4" style={{ borderRadius: 30 }}>
-                            <img src="src/assets/badges/4.png" className="img-fluid mb-2" alt="Home Image" title="Home Image"/>
-                            <h3 className="h2 text-secondary">Secure Bookings</h3>
+                            <img src="src/assets/badges/4.png" className="img-fluid mb-2" alt="Home Image" title="Home Image" width="85"/>
+                            <h3 className="h3 text-secondary">Secure Bookings</h3>
                             <p>Peace of mind with professional contracts.</p>
                         </div>
                     </div>
                    
+                </div>
+            </div>
+        </section>
+
+        <section className="py-4 py-lg-5 bg-card text-center border-top border-card border-3">
+            <div className="container">
+                <div className="row">
+                    <h2 className="h1 mb-3">Gallery</h2>
+                    <div className="col-5 mb-4 mb-lg-0 px-0 px-md-3">
+                        <img
+                        src="src/assets/7.jpg"
+                        className="w-100 shadow-1-strong img-fluid  mb-0 mb-md-4"
+                        alt="Boat on Calm Water"
+                        />
+
+                        <img
+                        src="src/assets/13.jpg"
+                        className="w-100 shadow-1-strong img-fluid   mb-0 mb-md-4"
+                        alt="Wintry Mountain Landscape"
+                        />
+
+                        <img
+                        src="src/assets/12.jpg"
+                        className="w-100 shadow-1-strong img-fluid   mb-0 mb-md-4"
+                        alt="Wintry Mountain Landscape"
+                        />
+                    </div>
+
+                    <div className="col-3 mb-4 mb-lg-0 px-0 px-md-3">
+                            <img
+                            src="src/assets/11.jpg"
+                            className="w-100 shadow-1-strong img-fluid   mb-0 mb-md-4"
+                            alt="Wintry Mountain Landscape"
+                            />
+
+                            <img
+                            src="src/assets/4.jpg"
+                            className="w-100 shadow-1-strong img-fluid   mb-0 mb-md-4"
+                            alt="Wintry Mountain Landscape"
+                            />  
+
+                            <img
+                            src="src/assets/6.jpg"
+                            className="w-100 shadow-1-strong img-fluid   mb-0 mb-md-4"
+                            alt="Wintry Mountain Landscape"
+                            />  
+                        
+                    </div>
+
+                    <div className="col-4 mb-4 mb-lg-0 px-0 px-md-3">
+                            <img
+                            src="src/assets/15.jpg"
+                            className="w-100 shadow-1-strong img-fluid   mb-0 mb-md-4"
+                            alt="Wintry Mountain Landscape"
+                            />
+
+                            <img
+                            src="src/assets/1.jpg"
+                            className="w-100 shadow-1-strong  img-fluid  mb-0 mb-md-4"
+                            alt="Wintry Mountain Landscape" 
+                            />  
+
+                            <img
+                            src="src/assets/10.jpg"
+                            className="w-100 shadow-1-strong img-fluid   mb-0 mb-md-4"
+                            alt="Wintry Mountain Landscape"
+                            />  
+                        
+                    </div>
+
+               
                 </div>
             </div>
         </section>
