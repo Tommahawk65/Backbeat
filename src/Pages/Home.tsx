@@ -1,11 +1,12 @@
 import Fixed from '../components/Hero/Fixed';
 import Carousel from '../components/Hero/Carousel';
 import HomeImg1 from'/src/assets/home-image1.png';
+import React from 'react';
+import TestimonialsCarousel from '../components/Owl';
+
 
 function Home() {
     return <>
-
-        <Carousel />
         <section id="main" className="py-4 py-lg-5">
             <div className="container">
                 <div className="row align-items-center g-3">
@@ -39,6 +40,46 @@ function Home() {
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section id='Accordion' className="py-4 py-lg-5 bg-card text-center border-top border-card d-none d-md-block border-3">
+            <div className="container-fluid">
+            <h2 className="h1 mb-4">Meet The Band</h2>
+                <ul>
+                    <li className="active member-1">
+                        <div className="section-title">
+                            <h4 className="h1">Liam</h4>
+                        </div>
+                        <div className="section-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatum temporibus dicta reprehenderit tempore quisquam consequuntur porro omnis laboriosam praesentium at et sapiente, provident sit! Suscipit recusandae, ab ratione dignissimos.</p>
+                        </div>
+                    </li>
+                    <li className="member-2">
+                        <div className="section-title">
+                            <h4 className="h1">Pete</h4>
+                        </div>
+                        <div className="section-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora totam delectus, eius nostrum aspernatur voluptas enim fugit ipsa magni voluptatem, odio sit accusamus vel id, commodi consequuntur possimus repellat necessitatibus!</p>
+                        </div>
+                    </li>
+                    <li className="member-3">
+                        <div className="section-title">
+                            <h4 className="h1">Tom</h4>
+                        </div>
+                        <div className="section-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur saepe vel facilis quae nihil ad aspernatur ex delectus. Tenetur nulla voluptates similique quos, quia possimus, magnam esse natus quis ipsa.</p>
+                        </div>
+                    </li>
+                    <li className="member-4">
+                        <div className="section-title">
+                            <h4 className="h1">Harvey</h4>
+                        </div>
+                        <div className="section-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, optio illo, delectus deleniti animi accusamus. Laboriosam maiores totam provident aliquam. Unde, incidunt amet officia a obcaecati, ducimus at molestiae nemo.</p>
+                        </div>    
+                    </li>
+                </ul>
+            </div>  
         </section>
         <section className="py-4 py-lg-5 bg-card text-center border-top border-card border-3">
             <div className="container">
@@ -143,6 +184,40 @@ function Home() {
                     </div>
 
                
+                </div>
+            </div>
+        </section>
+        <section id="testimonialsScroller" className='testimonials py-5 background img-1 cover-70 text-center single text-white'>
+            <div className="container py-lg-5">
+                <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
+                    <div className="carousel-inner">
+                        <div className="carousel-item active">
+                            <div className="h2 m-0">@(review.Title)</div>
+                            <p className="mt-2">"@(review.Comment)"</p>
+                            <i className="fa-solid fa-star"></i>
+                            <p className="name">@(review.FirstName) @(review.LastInitial)</p>
+                        </div>
+                        <div className="carousel-item">
+                            <div className="h2 m-0">@(review.Title)</div>
+                            <p className="mt-2">"@(review.Comment)"</p>
+                            <i className="fa-solid fa-star"></i>
+                            <p className="name">@(review.FirstName) @(review.LastInitial)</p>
+                        </div>
+                        <div className="carousel-item">
+                            <div className="h2 m-0">@(review.Title)</div>
+                            <p className="mt-2">"@(review.Comment)"</p>
+                            <i className="fa-solid fa-star"></i>
+                            <p className="name">@(review.FirstName) @(review.LastInitial)</p>
+                        </div>
+                    </div>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </section>

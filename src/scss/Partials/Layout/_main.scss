@@ -111,3 +111,177 @@ meta[name="theme-color"] {
 vc-root::part(container) {
     z-index: 1030;
 }
+
+#Accordion {
+    ul {
+        display: flex;
+        min-height: 80vh;
+        max-height: 80vh;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        list-style-type: none;
+    }
+
+    .member-1 {
+        background-image: url("src/assets/2.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 15%;
+
+
+        &.active {
+            flex: 5;
+           
+            cursor: default;
+            
+            h2 {
+                
+            }
+            
+            .section-content {
+                flex: 4;
+                opacity: 1;
+                transform: scaleX(1);
+                color: white;
+                
+            }
+        }
+      
+    }
+
+    .member-2 {
+        background-image: url("src/assets/3.jpg");
+        background-size: cover;
+        background-position: 50% 10%;
+
+
+        &.active {
+            flex: 5;
+            
+            cursor: default;
+            
+            h2 {
+              
+            }
+            
+            .section-content {
+              flex: 4;
+              opacity: 1;
+              transform: scaleX(1);
+              color: white;
+              
+            }
+        }
+
+
+    }
+
+    .member-3 {
+        background-image: url("src/assets/5.jpg");
+        background-size: cover;
+        background-position: 50% 0%;
+
+
+        &.active {
+            flex: 5;
+           
+            cursor: default;
+            
+            h2 {
+              
+            }
+            
+            .section-content {
+              flex: 4;
+              opacity: 1;
+              transform: scaleX(1);
+              color: white;
+             
+            }
+        }
+
+    }
+
+    .member-4 {
+        background-image: url("src/assets/6.jpg");
+        background-size: cover;
+        background-position: 50% 5%;
+
+
+        &.active {
+            flex: 5;
+            cursor: default;
+            
+            h2 {
+              
+            }
+            
+            .section-content {
+              flex: 4;
+              opacity: 1;
+              transform: scaleX(1);
+              color: white;
+              
+            }
+        }
+
+    }
+      
+    li {
+
+        
+        flex: 1;
+        display: flex;
+        align-items: stretch;
+        padding: 20px;
+        cursor: pointer;
+        transition: all .1s ease;
+        
+        &:hover {
+            filter: brightness(40%);
+            &.active {
+                filter: brightness(1);
+            }
+
+        }
+
+        &.active {
+            .section-title {
+                h4 { 
+                  transform: rotate(0deg);
+                }
+              }
+        }
+
+        .section-title {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          text-align: center;
+          color: white;
+          
+          h4 {
+            margin: 0;
+            transform: rotate(-90deg);
+            white-space: nowrap;
+          }
+        }
+        
+        .section-content {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          margin: 0;
+          padding: 0;
+          opacity: 0;
+          transition: all .25s .1s ease-out;
+        }
+    }
+            
+}
+
+
